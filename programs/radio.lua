@@ -217,7 +217,7 @@ buffer.start()
 lineHeight = math.floor(buffer.screen.height * 0.7)
 loadStations()
 radio.stop()
-radio.setURL(radioStations[radioStations.currentStation].url)
+radio.setURL("http://37.46.135.11:8000/live")
 radio.start()
 drawAll()
 
