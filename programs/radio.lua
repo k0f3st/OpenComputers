@@ -153,7 +153,9 @@ local function switchStation(i)
 			drawFourthStation()
 
 			radio.stop()
+			os.sleep(1)
 			radio.setURL(radioStations[radioStations.currentStation].url)
+			os.sleep(1)
 			radio.start()
 		end
 	else
@@ -165,7 +167,9 @@ local function switchStation(i)
 			drawFourthStation()
 
 			radio.stop()
+			os.sleep(1)
 			radio.setURL(radioStations[radioStations.currentStation].url)
+			os.sleep(1)
 			radio.start()
 		end
 	end
