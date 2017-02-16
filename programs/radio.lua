@@ -1,4 +1,5 @@
 local unicode = require("unicode")
+local computer = require("computer")
 local term = require('term')
 local os = require("os")
 local component = require("component")
@@ -153,9 +154,8 @@ local function switchStation(i)
 			drawFourthStation()
 
 			radio.stop()
-			os.sleep(1)
+			os.sleep(0.2)
 			radio.setURL(radioStations[radioStations.currentStation].url)
-			os.sleep(1)
 			radio.start()
 		end
 	else
@@ -167,9 +167,8 @@ local function switchStation(i)
 			drawFourthStation()
 
 			radio.stop()
-			os.sleep(1)
+			os.sleep(0.2)
 			radio.setURL(radioStations[radioStations.currentStation].url)
-			os.sleep(1)
 			radio.start()
 		end
 	end
