@@ -1,5 +1,6 @@
 local unicode = require("unicode")
 local component = require("component")
+local event = require("event")
 local ecs = require("ECSAPI")
 local gpu = component.gpu
 local radio
