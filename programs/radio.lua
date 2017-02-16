@@ -135,6 +135,7 @@ end
 
 local function drawMainElements()
 	gpu.setResolution(160, 50)
+	gpu.setBackground(config.colors.bg)
 	term.clear()
 	drawFirstStation()
 	drawSecondStation()
