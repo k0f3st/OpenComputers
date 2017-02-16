@@ -1,4 +1,6 @@
 local unicode = require("unicode")
+local term = require('term')
+local os = require("os")
 local component = require("component")
 local event = require("event")
 local ecs = require("ECSAPI")
