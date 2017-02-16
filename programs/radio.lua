@@ -132,6 +132,7 @@ end
 
 local function drawMainElements()
 	gpu.setResolution(160, 50)
+	term.clear()
 	drawFirstStation()
 	drawSecondStation()
 	drawThirdStation()
