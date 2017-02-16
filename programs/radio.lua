@@ -57,13 +57,13 @@ local function drawFirstStation()
 		gpu.setForeground(config.colors.inactive)
 	end
 
-	gpu.set(1,3,"                                                        ")
-	gpu.set(1,4,"        ***   ***    ***    **    ***   ***   **        ")
-	gpu.set(1,5,"       *     *       *  *  *  *   *  *   *   *  *       ")
-	gpu.set(1,6,"        **   *       ***   ****   *  *   *   *  *       ")
-	gpu.set(1,7,"          *  *       *  *  *  *   *  *   *   *  *       ")
-	gpu.set(1,8,"       ***    ***    *  *  *  *   **    ***   **        ")
-	gpu.set(1,9,"                                                        ")
+	gpu.set(1,3,"                                                                              ")
+	gpu.set(1,4,"                   ***   ***    ***    **    ***   ***   **                   ")
+	gpu.set(1,5,"                  *     *       *  *  *  *   *  *   *   *  *                  ")
+	gpu.set(1,6,"                   **   *       ***   ****   *  *   *   *  *                  ")
+	gpu.set(1,7,"                     *  *       *  *  *  *   *  *   *   *  *                  ")
+	gpu.set(1,8,"                  ***    ***    *  *  *  *   **    ***   **                   ")
+	gpu.set(1,9,"                                                                              ")
 end
 
 local function drawSecondStation()
@@ -93,13 +93,13 @@ local function drawThirdStation()
 		gpu.setForeground(config.colors.inactive)
 	end
 
-	gpu.set(1,21,"")
-	gpu.set(1,22,"")
-	gpu.set(1,23,"")
-	gpu.set(1,24,"")
-	gpu.set(1,25,"")
-	gpu.set(1,26,"")
-	gpu.set(1,27,"")
+	gpu.set(1,21,"                                                                              ")
+	gpu.set(1,22,"               ****  ***   ***    **   ****   **         *                    ")
+	gpu.set(1,23,"               *     *  *  *  *  *  *  *  *  *  *        *                    ")
+	gpu.set(1,24,"               ***   ***   ***   *  *  *  *  ****    * * * * *                ")
+	gpu.set(1,25,"               *     *  *  *     *  *  *  *  *  *        *                    ")
+	gpu.set(1,26,"               ****  ***   *      **   *  *  *  *        *                    ")
+	gpu.set(1,27,"                                                                              ")
 end
 
 local function drawFourthStation()
@@ -111,13 +111,13 @@ local function drawFourthStation()
 		gpu.setForeground(config.colors.inactive)
 	end
 
-	gpu.set(1,30,"")
-	gpu.set(1,31,"")
-	gpu.set(1,32,"")
-	gpu.set(1,33,"")
-	gpu.set(1,34,"")
-	gpu.set(1,35,"")
-	gpu.set(1,36,"")
+	gpu.set(1,30,"                                                                              ")
+	gpu.set(1,31,"      ***    **    ***   ***   **     ***   ****   ***   **   ***   ***       ")
+	gpu.set(1,32,"      *  *  *  *   *  *   *   *  *    *  *  *     *     *  *  *  *  *  *      ")
+	gpu.set(1,33,"      ***   ****   *  *   *   *  *    ***   ***   *     *  *  ***   *  *      ")
+	gpu.set(1,34,"      *  *  *  *   *  *   *   *  *    *  *  *     *     *  *  *  *  *  *      ")
+	gpu.set(1,35,"      *  *  *  *   **    ***   **     *  *  ****   ***   **   *  *  ***       ")
+	gpu.set(1,36,"                                                                              ")
 end
 
 local function drawToolbar()
@@ -132,7 +132,10 @@ end
 
 local function drawMainElements()
 	gpu.setResolution(160, 50)
-	
+	drawFirstStation()
+	drawSecondStation()
+	drawThirdStation()
+	drawFourthStation()
 	drawToolbar()
 end
 
@@ -141,6 +144,16 @@ local function switchStation(i)
 	if i == 1 then
 		if radioStations.currentStation < #radioStations then
 			radioStations.currentStation = radioStations.currentStation + 1
+			if radioStations.currentStation == 1 then
+				drawFirstStation()
+			elseif radioStations.currentStation == 2 then
+				drawSecondStation()
+			elseif radioStations.currentStation == 3 then
+				drawThirdStation()
+			elseif radioStations.currentStation == 4 then
+				drawFourthStation()
+			end
+
 			radio.stop()
 			radio.setURL(radioStations[radioStations.currentStation].url)
 			radio.start()
@@ -148,6 +161,16 @@ local function switchStation(i)
 	else
 		if radioStations.currentStation > 1 then
 			radioStations.currentStation = radioStations.currentStation - 1
+			if radioStations.currentStation == 1 then
+				drawFirstStation()
+			elseif radioStations.currentStation == 2 then
+				drawSecondStation()
+			elseif radioStations.currentStation == 3 then
+				drawThirdStation()
+			elseif radioStations.currentStation == 4 then
+				drawFourthStation()
+			end
+
 			radio.stop()
 			radio.setURL(radioStations[radioStations.currentStation].url)
 			radio.start()
@@ -164,7 +187,10 @@ local function volume(i)
 end
 
 local function onTouch(event,adress,x,y,clic,pseudo)
-	if x > 60 and x < 66 and y > 43 and y < 49 then
+	if x == 1 and y == 1 then
+		computer.pushSignal("quit")
+   		term.setCursor(1,1)
+	elseif x > 60 and x < 66 and y > 43 and y < 49 then
 		os.sleep(0.2)
 		switchStation(-1)
 	elseif x > 95 and x < 102 and y > 43 and y < 49 then
@@ -176,10 +202,6 @@ local function onTouch(event,adress,x,y,clic,pseudo)
 	elseif x > 80 and x < 96 and y > 43 and y < 49 then
 		volume(-1)
 		os.sleep(0.2)
-	elseif x == 1 and y == 1 then
-		radio.stop()
-		computer.pushSignal("quit")
-   		term.setCursor(1,1)
 	end
 end
 
@@ -193,6 +215,7 @@ event.listen("touch",onTouch)
 event.pull("quit")
 event.ignore("touch",onTouch)
 
+radio.stop()
 -- восстанавливаем параметры экрана
 gpu.setResolution(ow, oh)
 gpu.setForeground(0xFFFFFF)
