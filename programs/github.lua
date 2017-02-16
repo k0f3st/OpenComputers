@@ -10,19 +10,19 @@ local function getFile(url, path)
 	local sContent = ""
 
 	print(" ")
-	print("Подключаюсь к репозиторию GitHub...")
+	print("[git] РџРѕРґРєР»СЋС‡Р°СЋСЃСЊ Рє СЂРµРїРѕР·РёС‚РѕСЂРёСЋ GitHub...")
 
 	local result, response = pcall(internet.request, url)
 	if not result then
 		return nil
 	end
 
-	info(" ")
+	print(" ")
 
-	if result == "" or result == " " or result == "\n" then info("Файл пуст или неверная ссылка."); return end
+	if result == "" or result == " " or result == "\n" then info("[git] Р¤Р°Р№Р» РїСѓСЃС‚ РёР»Рё РЅРµРІРµСЂРЅР°СЏ СЃСЃС‹Р»РєР°."); return end
 
 	if fs.exists(path) then
-		info("Файл уже существует и будет перезаписан.")
+		info("[git] Р¤Р°Р№Р» СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ Рё Р±СѓРґРµС‚ РїРµСЂРµР·Р°РїРёСЃР°РЅ.")
 		fs.remove(path)
 	end
 	fs.makeDirectory(fs.path(path))
@@ -34,8 +34,8 @@ local function getFile(url, path)
 	end
 
 	file:close()
-	info("Файл загружен и находится в /"..path)
-	info(" ")
+	print("[git] Р¤Р°Р№Р» Р·Р°РіСЂСѓР¶РµРЅ Рё РЅР°С…РѕРґРёС‚СЃСЏ РІ /"..path)
+	print(" ")
 	return sContent
 end
 
