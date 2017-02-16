@@ -162,38 +162,38 @@ local function volume(i)
 	end
 end
 
+local function onTouch(event,adress,x,y,clic,pseudo)
+	if x > 60 and x < 66 and y > 43 and y < 49 then
+		os.sleep(0.2)
+		switchStation(-1)
+	elseif x > 95 and x < 102 and y > 43 and y < 49 then
+		os.sleep(0.2)
+		switchStation(1)
+	elseif x > 65 and x < 81 and y > 43 and y < 49 then
+		volume(1)
+		os.sleep(0.2)
+	elseif x > 80 and x < 96 and y > 43 and y < 49 then
+		volume(-1)
+		os.sleep(0.2)
+	elseif x == 1 and y == 1 then
+		radio.stop()
+		computer.pushSignal("quit")
+   		term.setCursor(1,1)
+	end
+end
+
 drawMainElements()
 
 radio.stop()
 radio.setURL(radioStations[radioStations.currentStation].url)
 radio.start()
 
-while true do
-	local e = {event.pull()}
-	if e[1] == "touch" then
-		if e[5] == 0 then
-			if e[3] > 60 and e[3] < 66 and e[4] > 43 and e[4] < 49 then
-				os.sleep(0.2)
-				switchStation(-1)
-			elseif e[3] > 95 and e[3] < 136 and e[4] > 43 and e[4] < 49 then
-				os.sleep(0.2)
-				switchStation(1)
-			elseif e[3] > 65 and e[3] < 81 and e[4] > 43 and e[4] < 49 then
-				volume(1)
-				os.sleep(0.2)
-			elseif e[3] > 80 and e[3] < 96 and e[4] > 43 and e[4] < 49 then
-				volume(-1)
-				os.sleep(0.2)
-			end
-		end
+event.listen("touch",onTouch)
+event.pull("quit")
+event.ignore("touch",onTouch)
 
-	elseif e[1] == "key_up" then
-		if e[3] == 'q' then
-			radio.stop()
-			gpu.setResolution(ow, oh)
-			gpu.setForeground(0xFFFFFF)
-			gpu.setBackground(0x000000)
-			term.clear()
-		end
-	end
-end
+-- восстанавливаем параметры экрана
+gpu.setResolution(ow, oh)
+gpu.setForeground(0xFFFFFF)
+gpu.setBackground(0x000000)
+term.clear()
