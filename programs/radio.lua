@@ -39,7 +39,7 @@ local radioStations = {
 	},
 	{
 		name = "Европа Плюс",
-		url = "http://ep256.streamr.ru"
+		url = "http://ep256.hostingradio.ru:8052/europaplus256.mp3"
 	},
 	{
 		name = "Radio Record",
