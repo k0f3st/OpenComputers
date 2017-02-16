@@ -147,15 +147,10 @@ local function switchStation(i)
 	if i == 1 then
 		if radioStations.currentStation < #radioStations then
 			radioStations.currentStation = radioStations.currentStation + 1
-			if radioStations.currentStation == 1 then
-				drawFirstStation()
-			elseif radioStations.currentStation == 2 then
-				drawSecondStation()
-			elseif radioStations.currentStation == 3 then
-				drawThirdStation()
-			elseif radioStations.currentStation == 4 then
-				drawFourthStation()
-			end
+			drawFirstStation()
+			drawSecondStation()
+			drawThirdStation()
+			drawFourthStation()
 
 			radio.stop()
 			radio.setURL(radioStations[radioStations.currentStation].url)
@@ -164,15 +159,10 @@ local function switchStation(i)
 	else
 		if radioStations.currentStation > 1 then
 			radioStations.currentStation = radioStations.currentStation - 1
-			if radioStations.currentStation == 1 then
-				drawFirstStation()
-			elseif radioStations.currentStation == 2 then
-				drawSecondStation()
-			elseif radioStations.currentStation == 3 then
-				drawThirdStation()
-			elseif radioStations.currentStation == 4 then
-				drawFourthStation()
-			end
+			drawFirstStation()
+			drawSecondStation()
+			drawThirdStation()
+			drawFourthStation()
 
 			radio.stop()
 			radio.setURL(radioStations[radioStations.currentStation].url)
