@@ -57,13 +57,13 @@ local function drawFirstStation()
 		gpu.setForeground(config.colors.inactive)
 	end
 
-	gpu.set(1,3,"                                                                              ")
-	gpu.set(1,4,"                   ***   ***    ***    **    ***   ***   **                   ")
-	gpu.set(1,5,"                  *     *       *  *  *  *   *  *   *   *  *                  ")
-	gpu.set(1,6,"                   **   *       ***   ****   *  *   *   *  *                  ")
-	gpu.set(1,7,"                     *  *       *  *  *  *   *  *   *   *  *                  ")
-	gpu.set(1,8,"                  ***    ***    *  *  *  *   ***   ***   **                   ")
-	gpu.set(1,9,"                                                                              ")
+	gpu.set(1,3,"                                                                                                                                                                ")
+	gpu.set(1,4,"                                                            ***   ***    ***    **    ***   ***   **                                                            ")
+	gpu.set(1,5,"                                                           *     *       *  *  *  *   *  *   *   *  *                                                           ")
+	gpu.set(1,6,"                                                            **   *       ***   ****   *  *   *   *  *                                                           ")
+	gpu.set(1,7,"                                                              *  *       *  *  *  *   *  *   *   *  *                                                           ")
+	gpu.set(1,8,"                                                           ***    ***    *  *  *  *   ***   ***   **                                                            ")
+	gpu.set(1,9,"                                                                                                                                                                ")
 end
 
 local function drawSecondStation()
@@ -76,13 +76,13 @@ local function drawSecondStation()
 		gpu.setForeground(config.colors.inactive)
 	end
 
-	gpu.set(1,12,"                                                                              ")
-	gpu.set(1,13,"               ****  ***   ***    **   ****   **         *                    ")
-	gpu.set(1,14,"               *     *  *  *  *  *  *  *  *  *  *        *                    ")
-	gpu.set(1,15,"               ***   ***   ***   *  *  *  *  ****    * * * * *                ")
-	gpu.set(1,16,"               *     *  *  *     *  *  *  *  *  *        *                    ")
-	gpu.set(1,17,"               ****  ***   *      **   *  *  *  *        *                    ")
-	gpu.set(1,18,"                                                                              ")
+	gpu.set(1,12,"                                                                                                                                                                ")
+	gpu.set(1,13,"                                                        ****  ***   ***    **   ****   **         *                                                             ")
+	gpu.set(1,14,"                                                        *     *  *  *  *  *  *  *  *  *  *        *                                                             ")
+	gpu.set(1,15,"                                                        ***   ***   ***   *  *  *  *  ****    * * * * *                                                         ")
+	gpu.set(1,16,"                                                        *     *  *  *     *  *  *  *  *  *        *                                                             ")
+	gpu.set(1,17,"                                                        ****  ***   *      **   *  *  *  *        *                                                             ")
+	gpu.set(1,18,"                                                                                                                                                                ")
 end
 
 local function drawThirdStation()
@@ -95,13 +95,13 @@ local function drawThirdStation()
 		gpu.setForeground(config.colors.inactive)
 	end
 
-	gpu.set(1,21,"                                                                              ")
-	gpu.set(1,22,"      ***    **    ***   ***   **     ***   ****   ***   **   ***   ***       ")
-	gpu.set(1,23,"      *  *  *  *   *  *   *   *  *    *  *  *     *     *  *  *  *  *  *      ")
-	gpu.set(1,24,"      ***   ****   *  *   *   *  *    ***   ***   *     *  *  ***   *  *      ")
-	gpu.set(1,25,"      *  *  *  *   *  *   *   *  *    *  *  *     *     *  *  *  *  *  *      ")
-	gpu.set(1,26,"      *  *  *  *   ***   ***   **     *  *  ****   ***   **   *  *  ***       ")
-	gpu.set(1,27,"                                                                              ")
+	gpu.set(1,21,"                                                                                                                                                                ")
+	gpu.set(1,22,"                                               ***    **    ***   ***   **     ***   ****   ***   **   ***   ***                                                ")
+	gpu.set(1,23,"                                               *  *  *  *   *  *   *   *  *    *  *  *     *     *  *  *  *  *  *                                               ")
+	gpu.set(1,24,"                                               ***   ****   *  *   *   *  *    ***   ***   *     *  *  ***   *  *                                               ")
+	gpu.set(1,25,"                                               *  *  *  *   *  *   *   *  *    *  *  *     *     *  *  *  *  *  *                                               ")
+	gpu.set(1,26,"                                               *  *  *  *   ***   ***   **     *  *  ****   ***   **   *  *  ***                                                ")
+	gpu.set(1,27,"                                                                                                                                                                ")
 end
 
 local function drawToolbar()
