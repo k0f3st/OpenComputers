@@ -148,6 +148,7 @@ local function switchStation(i)
 			radio.start()
 		end
 	end
+	radio.setScreenColor(config.colors.active)
 	radio.setScreenText(radioStations[radioStations.currentStation].name)
 end
 
