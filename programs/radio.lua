@@ -51,6 +51,7 @@ local function drawFirstStation()
 	if radioStations.currentStation == 1 then
 		gpu.setBackground(config.colors.active)
 		gpu.setForeground(config.colors.bg)
+		radio.setScreenText("SC Radio")
 	else
 		gpu.setBackground(config.colors.bg)
 		gpu.setForeground(config.colors.inactive)
@@ -69,6 +70,7 @@ local function drawSecondStation()
 	if radioStations.currentStation == 2 then
 		gpu.setBackground(config.colors.active)
 		gpu.setForeground(config.colors.bg)
+		radio.setScreenText("Европа +")
 	else
 		gpu.setBackground(config.colors.bg)
 		gpu.setForeground(config.colors.inactive)
@@ -87,6 +89,7 @@ local function drawThirdStation()
 	if radioStations.currentStation == 3 then
 		gpu.setBackground(config.colors.active)
 		gpu.setForeground(config.colors.bg)
+		radio.setScreenText("Radio Record")
 	else
 		gpu.setBackground(config.colors.bg)
 		gpu.setForeground(config.colors.inactive)
@@ -148,8 +151,6 @@ local function switchStation(i)
 			radio.start()
 		end
 	end
-	radio.setScreenColor(config.colors.active)
-	radio.setScreenText(radioStations[radioStations.currentStation].name)
 end
 
 local function volume(i)
@@ -181,6 +182,7 @@ end
 
 drawMainElements()
 
+radio.setScreenColor(config.colors.active)
 radio.stop()
 radio.setURL(radioStations[radioStations.currentStation].url)
 radio.start()
