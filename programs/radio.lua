@@ -43,7 +43,7 @@ local radioStations = {
 	},
 	{
 		name = "Radio Record",
-		url = "http://online.radiorecord.ru:8101/rr_128.m3u"
+		url = "http://online.radiorecord.ru:8101/rr_128"
 	},
 }
 
