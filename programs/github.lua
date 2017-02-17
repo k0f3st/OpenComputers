@@ -34,7 +34,7 @@ local function getFile(url, path)
 	end
 
 	file:close()
-	print("[git] Файл загружен и находится в /"..path)
+	print("[git] Файл загружен и доступен по адресу: "..path)
 	print(" ")
 	return sContent
 end
