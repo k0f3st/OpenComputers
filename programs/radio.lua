@@ -38,10 +38,6 @@ local radioStations = {
 		url = "http://37.46.135.11:8000/live"
 	},
 	{
-		name = "k0f3st local",
-		url = "http://85.113.41.240:8001/sc-hitech"
-	},
-	{
 		name = "Европа Плюс",
 		url = "http://ep256.hostingradio.ru:8052/europaplus256.mp3"
 	},
@@ -79,11 +75,11 @@ local function drawSecondStation()
 	end
 
 	gpu.set(1,12,"                                                                              ")
-	gpu.set(1,13,"       *  *  ****  ****  ***   ***  *****    *     **    ***   **   *         ")
-	gpu.set(1,14,"       * *   *  *  *       *  *       *      *    *  *  *     *  *  *         ")
-	gpu.set(1,15,"       **    *  *  ***   ***   **     *      *    *  *  *     ****  *         ")
-	gpu.set(1,16,"       * *   *  *  *       *     *    *      *    *  *  *     *  *  *         ")
-	gpu.set(1,17,"       *  *  ****  *     ***  ***     *      ***   **    ***  *  *  ***       ")
+	gpu.set(1,13,"               ****  ***   ***    **   ****   **         *                    ")
+	gpu.set(1,14,"               *     *  *  *  *  *  *  *  *  *  *        *                    ")
+	gpu.set(1,15,"               ***   ***   ***   *  *  *  *  ****    * * * * *                ")
+	gpu.set(1,16,"               *     *  *  *     *  *  *  *  *  *        *                    ")
+	gpu.set(1,17,"               ****  ***   *      **   *  *  *  *        *                    ")
 	gpu.set(1,18,"                                                                              ")
 end
 
@@ -97,30 +93,12 @@ local function drawThirdStation()
 	end
 
 	gpu.set(1,21,"                                                                              ")
-	gpu.set(1,22,"               ****  ***   ***    **   ****   **         *                    ")
-	gpu.set(1,23,"               *     *  *  *  *  *  *  *  *  *  *        *                    ")
-	gpu.set(1,24,"               ***   ***   ***   *  *  *  *  ****    * * * * *                ")
-	gpu.set(1,25,"               *     *  *  *     *  *  *  *  *  *        *                    ")
-	gpu.set(1,26,"               ****  ***   *      **   *  *  *  *        *                    ")
+	gpu.set(1,22,"      ***    **    ***   ***   **     ***   ****   ***   **   ***   ***       ")
+	gpu.set(1,23,"      *  *  *  *   *  *   *   *  *    *  *  *     *     *  *  *  *  *  *      ")
+	gpu.set(1,24,"      ***   ****   *  *   *   *  *    ***   ***   *     *  *  ***   *  *      ")
+	gpu.set(1,25,"      *  *  *  *   *  *   *   *  *    *  *  *     *     *  *  *  *  *  *      ")
+	gpu.set(1,26,"      *  *  *  *   **    ***   **     *  *  ****   ***   **   *  *  ***       ")
 	gpu.set(1,27,"                                                                              ")
-end
-
-local function drawFourthStation()
-	if radioStations.currentStation == 4 then
-		gpu.setBackground(config.colors.active)
-		gpu.setForeground(config.colors.bg)
-	else
-		gpu.setBackground(config.colors.bg)
-		gpu.setForeground(config.colors.inactive)
-	end
-
-	gpu.set(1,30,"                                                                              ")
-	gpu.set(1,31,"      ***    **    ***   ***   **     ***   ****   ***   **   ***   ***       ")
-	gpu.set(1,32,"      *  *  *  *   *  *   *   *  *    *  *  *     *     *  *  *  *  *  *      ")
-	gpu.set(1,33,"      ***   ****   *  *   *   *  *    ***   ***   *     *  *  ***   *  *      ")
-	gpu.set(1,34,"      *  *  *  *   *  *   *   *  *    *  *  *     *     *  *  *  *  *  *      ")
-	gpu.set(1,35,"      *  *  *  *   **    ***   **     *  *  ****   ***   **   *  *  ***       ")
-	gpu.set(1,36,"                                                                              ")
 end
 
 local function drawToolbar()
@@ -140,7 +118,6 @@ local function drawMainElements()
 	drawFirstStation()
 	drawSecondStation()
 	drawThirdStation()
-	drawFourthStation()
 	drawToolbar()
 end
 
@@ -152,7 +129,6 @@ local function switchStation(i)
 			drawFirstStation()
 			drawSecondStation()
 			drawThirdStation()
-			drawFourthStation()
 
 			radio.stop()
 			os.sleep(0.2)
@@ -165,7 +141,6 @@ local function switchStation(i)
 			drawFirstStation()
 			drawSecondStation()
 			drawThirdStation()
-			drawFourthStation()
 
 			radio.stop()
 			os.sleep(0.2)
