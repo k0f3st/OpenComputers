@@ -148,6 +148,7 @@ local function switchStation(i)
 			radio.start()
 		end
 	end
+	radio.setScreenText(radioStations[radioStations.currentStation].name)
 end
 
 local function volume(i)
